@@ -73,4 +73,6 @@ CLAUDE.md                 conventions for working on this repo with Claude
 
 The council roles in idea-to-spec are adapted from [agentic-council](https://github.com/dtsong/agentic-council) (Apache License 2.0). See [the notice](skills/idea-to-spec/council/NOTICE.md) for what changed.
 
-The rest of this repository has no license yet.
+## License
+
+MIT, see [LICENSE](LICENSE). The council role files in `skills/idea-to-spec/council/` stay under the Apache License 2.0, as stated in their notice.
