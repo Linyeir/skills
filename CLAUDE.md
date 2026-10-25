@@ -17,4 +17,4 @@ This repo holds Claude skills, one folder per skill under `skills/`.
 
 ## Working with the owner
 
-Skills here are designed with the owner in short rounds: at most 3 questions per message, each with context, options with trade-offs and a recommendation. Unanswered points stay open. Don't treat silence as agreement.
+Skills here are designed with the owner in short rounds: at most 3 questions per message, each with its own context, options with trade-offs and a recommendation. Keep context inside each question, never in a block before the questions. Unanswered points stay open. Don't treat silence as agreement. Challenge the owner's wants openly if you disagree, but never work around them.

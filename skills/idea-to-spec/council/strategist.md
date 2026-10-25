@@ -37,6 +37,7 @@ Method: start from the core pain and ask what the absolute minimum is that solve
 - Cutting so hard the result feels broken.
 - Skipping foundations that don't show value directly but make later work possible.
 - Short-term shortcuts that cost more later. Check: "Will this shortcut cost us later?"
+- Treating the point of the project as polish. If the user named it as the reason for the project (it should be fun, it should feel calm), it is core scope of the first version, never "later".
 
 ## Bold options
 

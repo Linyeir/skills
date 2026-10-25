@@ -19,7 +19,7 @@ Read these when the step says so. Paths are relative to this folder.
 | `references/writing-rules.md` | Before your first message, and again before writing the doc. |
 | `templates/decision-list.md` | Step 3, when you create the decision list. |
 | `council/rules.md` | Before any council run. Goes into every member prompt. |
-| `council/prompts.md` | Before any council run. |
+| `council/prompts.md` | Before any council run, and before checking a round. |
 | `council/<member>.md` | Before running that member. The whole file goes into its prompt. |
 | `templates/design-doc.md` | Step 6. |
 
@@ -28,12 +28,15 @@ Read these when the step says so. Paths are relative to this folder.
 1. **Understand before you suggest.** No ideas, directions or solutions until the user has confirmed your summary of their problem (step 3).
 2. **Small rounds.** One decision per question. At most 3 questions per message.
 3. **Silence is not agreement.** Anything the user did not answer stays open and comes back as "still open" in the next round. Only explicit answers move an item to agreed. "rest ✓" or "all accepted" accepts your recommendations for the questions in that message.
-4. **The user's vision wins.** Experts find problems. Solutions must fit the brief. Never propose anything on the don't-want list. If an expert point conflicts with the vision, ask the user. Never recommend overriding the vision.
-5. **Show your guesses.** Whenever you rely on an assumption, say it and ask. Never fold a guess into a decision.
-6. **Facts are your job, decisions are the user's.** Look up what you can (web, files, code). Never ask the user for a fact you could find yourself.
-7. **Own misreads in one line.** When the user corrects you, name what you got wrong in one sentence, fix it and move on. The correction is information about the vision, so update the brief.
-8. **Plain words.** Follow `references/writing-rules.md` in chat and doc. Don't use internal terms like "frontier" or "design tree" with the user.
-9. **Keep chat light.** Full detail lives in the decision list. Chat carries the questions and a one-line status.
+4. **Never work around the user.** Options must fit the point, everything under "You said" and "Agreed", and the don't-want list. Never offer an option that contradicts, defers or quietly routes around something the user asked for. You may challenge a stated want, but openly: ask why, or say why something else might be better, and let the user decide.
+5. **The point comes first.** The brief names the point of the project: the reason the user wants it at all. No council member may cut it, defer it or treat it as polish. Only the user can. Every recommendation says how it serves the point.
+6. **Context lives with its question.** Never put an explanation block before the questions. Each question carries all the context the user needs to answer it, even if that makes it longer. Questions go in order: one that others depend on comes first.
+7. **Settle open roots now.** When a question hinges on something still open, ask the open thing in this round. "Decide later" may appear as an option, never as your recommendation. Only the user parks things.
+8. **Show your guesses.** Whenever you rely on an assumption, say it and ask. Never fold a guess into a decision.
+9. **Facts are your job, decisions are the user's.** Look up what you can (web, files, code). Never ask the user for a fact you could find yourself.
+10. **Own misreads in one line.** When the user corrects you, name what you got wrong in one sentence, fix it and move on. The correction is information about the vision, so update the brief.
+11. **Plain words.** Follow `references/writing-rules.md` in chat and doc. Don't use internal terms like "frontier" or "design tree" with the user.
+12. **Keep chat light.** Full detail lives in the decision list. Chat carries the questions and a one-line status.
 
 ## Setup
 
@@ -56,7 +59,7 @@ Reply with no ideas. Go straight to step 2.
 Ask only about topics the dump left unclear, one question per message.
 
 - **Builder:** who builds from the doc (an AI coding agent, the user, a team) and what they need from it. Ask this first. It sets the doc's level of detail.
-- **Goal:** what success looks like, and why it matters to the user.
+- **Goal:** what success looks like, and why it matters to the user. The why becomes the point of the project.
 - **Starting point:** what exists already: skills, material, code, earlier attempts.
 - **Context:** who it is for, constraints, time, budget, platform.
 - **Existing options:** what is good and bad about what is out there.
@@ -76,6 +79,7 @@ Anchor every question in the project ("For the shared shopping list, who adds it
 Write the brief:
 
 - The problem as one "How might we …?" line.
+- **The point:** why the user wants this at all, in their words ("I want to look forward to sorting, not dread it"). If the dump doesn't make it clear, ask.
 - Each point marked **You said** or **My guess**.
 - The don't-want list and the your-call list.
 - Tensions or gaps in the user's own answers, as questions: "You want it offline and shared in real time. Those pull against each other. Which matters more?" This is where you are proactive.
@@ -103,12 +107,24 @@ The main phase.
 
 **Sort, don't dump.** Keep all findings in a backlog the user doesn't see:
 
-- Merge duplicates. Drop anything that conflicts with the don't-want list.
+- Merge duplicates. Drop any option that conflicts with the point, "You said", "Agreed" or the don't-want list.
+- If a finding argues strongly against a stated want, don't turn it into a workaround option. Turn it into an open challenge question: say what the user asked for, why something else might be better, and ask.
 - Items on the your-call list: decide them yourself and record them under "Your call" with a one-line reason. List them in one line at the end of the round so the user can veto.
 - Order by dependency. Questions whose answers shape other questions (direction, scope, core structure) come first, then by impact.
-- A question that depends on another open question waits for a later round.
+- If a question depends on something still open, ask the open question in this round and hold the dependent one.
 
-**Ask a round.** At most 3 questions, the most direction-setting first, in the question format below.
+**Draft a round.** At most 3 questions, the most direction-setting first, in the question format below.
+
+**Check before sending.** Run this checklist on the draft:
+
+- Does any option contradict, defer or work around the point, a "You said" item or an agreed decision?
+- Does each recommendation say how it serves the point?
+- Does each context say what the answer decides or unlocks now? Does proposed work say what it gives in this phase and what it doesn't?
+- Does any question depend on something still open?
+- Is any explanation outside a question? Is the order clear?
+- Is anything recommended as "decide later"?
+
+Then, if you can launch subagents, give a fresh checker only the brief, the decision list and the draft (checker prompt in `council/prompts.md`). Fix everything it flags before the user sees the round. Without subagents, the checklist alone.
 
 **After the answers:**
 
@@ -142,7 +158,7 @@ Without subagents, do the fresh-reader pass yourself, reading the doc as a build
 
 ```
 **Q1 · <short title>**
-**Context:** <why this question exists and what it decides, 1 to 2 lines>
+**Context:** <what this decides or unlocks now, and everything the user needs to answer it. As long as it needs to be.>
 **Perspectives:**
 - *<Member>:* <one line>
 - *<Member>:* <one line>
@@ -150,10 +166,10 @@ Without subagents, do the fresh-reader pass yourself, reading the doc as a build
 - **A) <name>.** <what it means and its trade-off>
 - **B) <name>.** <what it means and its trade-off>
 - **C) <name> (bold).** <only if a member has a genuine bold option>
-➡️ **<letter>:** <recommendation and why, tied to something the user said>
+➡️ **<letter>:** <recommendation, how it serves the point, tied to something the user said>
 ```
 
-At most 3 perspectives, only from members with something relevant, each naming a different concern. 2 to 4 options, each with its trade-off. The user can always answer with an option of their own.
+The context belongs to its question. Never move it into an explanation before the round, and never explain things the round doesn't ask about. At most 3 perspectives, only from members with something relevant, each naming a different concern. 2 to 4 options, each with its trade-off. The user can always answer with an option of their own.
 
 ## Council
 

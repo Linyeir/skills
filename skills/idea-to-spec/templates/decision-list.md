@@ -8,6 +8,7 @@ Status: Agreed 0 · Open 0 · Parked 0
 Phase: <step> · Next: <what happens next>
 
 ## Brief
+The point: <why the user wants this at all, in their words>
 How might we …?
 - You said: …
 - My guess (unconfirmed): …

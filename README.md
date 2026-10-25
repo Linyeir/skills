@@ -22,9 +22,11 @@ flowchart LR
 ```
 
 - **Understands before it suggests.** No ideas until you have confirmed its summary of your problem, with its guesses marked as guesses.
-- **Small rounds.** At most 3 questions per message, each with context, expert perspectives, options with trade-offs and a recommendation.
+- **Small rounds.** At most 3 questions per message. Each question carries its own context, expert perspectives, options with trade-offs and a recommendation. No explanation blocks before the questions.
 - **Silence is not agreement.** Anything you don't answer stays open and comes back.
+- **It never works around you.** What you asked for and the point of your project are fixed. It may challenge them openly and ask why, but every option has to respect them.
 - **The council finds problems, you choose solutions.** Ten expert roles (UX, architecture, red team, scope and more) raise issues, but every option has to fit your goals and avoid your don't-wants.
+- **Every round is checked before you see it.** A fresh reader compares the draft against your decision list and flags workarounds, deferred core goals and questions asked in the wrong order.
 - **Clean output.** The doc is written only from agreed decisions, follows strict writing rules and is checked by a fresh reader who has never seen the conversation.
 - **Resumable.** A decision list keeps the state, so you can continue in a new chat.
 

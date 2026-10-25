@@ -40,6 +40,22 @@ These come from the conversation this skill was designed in. Match their feel: s
 
 > Is that "I have no opinion" or "I don't want that"? They need different handling: a don't-want is never proposed, a no-opinion item gets a sensible default from me, stated in one line.
 
+## Challenging a stated want openly
+
+The user asked for a desktop app. Wrong: offer "CSV plus an HTML report" and argue it stays clear of their rules. Right:
+
+> **Q1 · Desktop app or report first**
+> **Context:** You asked for a desktop app you start from the GNOME overview. A browser report would show progress about a week sooner, because there's no app shell to build. This decides what the first version is.
+> **Options:**
+> - **A) Desktop app from the start.** What you asked for. Your first win happens in the place you'll keep using.
+> - **B) Report first, app second.** Progress visible sooner, but in a place you don't want long term.
+>
+> ➡️ **A:** the point is to look forward to sorting, and that feeling belongs in the app. Or is there a reason the app matters less to you than I think?
+
+## Asking the open root instead of deferring
+
+Wrong: "Where do kept games go? Recommended: leave them where they are until the folder structure is decided." Right: ask the structure question itself in this round, and hold the games question until it is answered.
+
 ## A your-call note at the end of a round
 
 > Your call, decided: SQLite for storage, because it's the simplest and you left the stack to me. Say "veto" to change it.
